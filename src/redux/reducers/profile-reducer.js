@@ -1,5 +1,5 @@
 import { ADD_POST, SET_USER_PROFILE, SET_USER_STATUS } from "../action-const";
-import { profileAPI } from "../../Api/api";
+import { profileAPI } from "../../api/api";
 
 let initialState = {
   posts: [

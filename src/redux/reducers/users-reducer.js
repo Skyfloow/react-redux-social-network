@@ -7,7 +7,7 @@ import {
   SET_TOGGLE_LOADING,
   SET_FOLLOWING_STATUS,
 } from "../action-const";
-import { userAPI } from "../../Api/api";
+import { userAPI } from "../../api/api";
 import { updateObjectInArray } from "../../utils/object-helpers";
 
 let initialState = {
@@ -85,7 +85,7 @@ export const getUsers = () => async (dispatch) => {
   const response = await userAPI.getUsers();
   dispatch(setUsers(response.items));
   dispatch(setToggleLoading(false));
-  dispatch(setCountPages(Math.ceil(response.totalCount / 50)));
+  dispatch(setCountPages(Math.ceil(response.totalCount)));
 };
 
 export const changePage = (currentPage, pageSize) => async (dispatch) => {

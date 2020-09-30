@@ -12,6 +12,9 @@ const HeaderContainer = styled.nav`
   img {
     margin-right: 0.25rem;
   }
+  @media screen and (max-width: 599px) {
+    border-radius: 0;
+  }
 `;
 const ButtonAuth = styled.button`
   border: none;

@@ -1,5 +1,5 @@
 import { SET_AUTH_ME_DATA } from "../action-const";
-import { authAPI } from "../../Api/api";
+import { authAPI } from "../../api/api";
 import { stopSubmit } from "redux-form";
 
 let initialState = {

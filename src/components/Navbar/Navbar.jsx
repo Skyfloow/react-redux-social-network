@@ -16,6 +16,10 @@ const DivNavbar = styled.nav`
   .activeLink {
     color: white;
   }
+  @media screen and (max-width: 1199px) {
+    border-radius: 0;
+    box-shadow: 0px 7px 14px -5px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 const Navbar = () => {

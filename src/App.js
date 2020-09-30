@@ -17,6 +17,12 @@ const DivAppContent = styled.div`
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5rem 0;
   border-radius: 0 0 5px 0;
+  @media screen and (max-width: 1199px) {
+    border-radius: 0 0 5px 5px;
+  }
+  @media screen and (max-width: 599px) {
+    border-radius: 0;
+  }
 `;
 
 const App = ({ initializeAppThunk, initialized }) => {

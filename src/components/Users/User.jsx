@@ -21,10 +21,15 @@ const ButtonFollowUnfollow = styled.button`
     outline: none;
   }
 `;
+const DivWrapper = styled.div`
+  hr:last-child {
+    margin-bottom: 0.5rem;
+  }
+`;
 
 const User = ({ user, followingStatus, follow, unFollow }) => {
   return (
-    <React.Fragment>
+    <DivWrapper>
       <span>
         <NavLink to={"/profile/" + user.id}>
           <ImgUsersAva
@@ -67,7 +72,7 @@ const User = ({ user, followingStatus, follow, unFollow }) => {
         <div>{`u.location.city`}</div>
       </span>
       <hr />
-    </React.Fragment>
+    </DivWrapper>
   );
 };
 
