@@ -13,3 +13,7 @@ export const getAuthorizedIdSelector = (state) => {
 export const getMyPostsSelector = (state) => {
   return state.profilePage.posts;
 };
+
+export const getUploadPhotoStatusSelector = (state) => {
+  return state.profilePage.uploadPhotoStatus;
+};

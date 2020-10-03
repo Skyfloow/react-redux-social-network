@@ -64,4 +64,14 @@ export const profileAPI = {
       return response.data;
     });
   },
+  savePhoto(photo) {
+    const formData = new FormData();
+    formData.append("image", photo);
+
+    return api.put(`/profile/photo/`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  },
 };

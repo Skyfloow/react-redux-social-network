@@ -31,7 +31,7 @@ const User = ({ user, followingStatus, follow, unFollow }) => {
   return (
     <DivWrapper>
       <span>
-        <NavLink to={"/profile/" + user.id}>
+        <NavLink to={`/profile/${user.id}`}>
           <ImgUsersAva
             src={user.photos.small != null ? user.photos.small : UserAvatar}
             alt="avatars"

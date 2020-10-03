@@ -5,6 +5,7 @@ import {
   getUserProfileThunk,
   setStatusProfileThunk,
   updateStatusProfileThunk,
+  saveProfilePhotoThunk,
 } from "../../redux/reducers/profile-reducer";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
@@ -13,6 +14,7 @@ import {
   getAuthorizedIdSelector,
   getProfileSelector,
   getStatusSelector,
+  getUploadPhotoStatusSelector,
 } from "../../redux/selectors/profile-selectors";
 
 const ProfileContainer = ({
@@ -23,23 +25,24 @@ const ProfileContainer = ({
   profile,
   status,
   updateStatusProfileThunk,
+  saveProfilePhotoThunk,
+  uploadPhotoStatus,
 }) => {
+  const userId = match.params.userId || authorizedId;
+
   useEffect(() => {
-    let userId = match.params.userId;
-
-    if (!userId) {
-      userId = authorizedId;
-    }
-
     getUserProfileThunk(userId);
     setStatusProfileThunk(userId);
-  }, []);
+  }, [userId]);
 
   return (
     <Profile
       profile={profile}
       status={status}
       updateStatus={updateStatusProfileThunk}
+      ownerProfile={!match.params.userId}
+      saveProfilePhotoThunk={saveProfilePhotoThunk}
+      uploadPhotoStatus={uploadPhotoStatus}
     />
   );
 };
@@ -48,6 +51,7 @@ const mapStateToProps = (state) => ({
   profile: getProfileSelector(state),
   status: getStatusSelector(state),
   authorizedId: getAuthorizedIdSelector(state),
+  uploadPhotoStatus: getUploadPhotoStatusSelector(state),
 });
 
 export default compose(
@@ -55,6 +59,7 @@ export default compose(
     getUserProfileThunk,
     setStatusProfileThunk,
     updateStatusProfileThunk,
+    saveProfilePhotoThunk,
   }),
   withRouter,
   authRedirectComponent
