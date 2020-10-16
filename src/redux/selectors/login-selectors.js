@@ -7,3 +7,10 @@ export const isAuthSelector = createSelector(
     return authUserData.isAuth;
   }
 );
+
+export const isCaptchaUrlSelector = createSelector(
+  getAuthDataSelector,
+  (authUserData) => {
+    return authUserData.captchaUrl;
+  }
+);

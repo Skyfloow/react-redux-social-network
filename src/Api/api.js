@@ -34,9 +34,9 @@ export const authAPI = {
       return response.data;
     });
   },
-  login(email, password, rememberMe = false) {
+  login(email, password, rememberMe = false, captcha = null) {
     return api
-      .post(`/auth/login`, { email, password, rememberMe })
+      .post(`/auth/login`, { email, password, rememberMe, captcha })
       .then((response) => {
         return response.data;
       });
@@ -46,6 +46,11 @@ export const authAPI = {
       return response.data;
     });
   },
+  captcha(){
+    return api.get(`/security/get-captcha-url`).then((response) => {
+      return response.data;
+    });
+  }
 };
 
 export const profileAPI = {

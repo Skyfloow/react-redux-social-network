@@ -33,8 +33,12 @@ const DivApiError = styled.div`
   border: 1px solid red;
   padding: 0 4px;
 `;
+const ImgCaptcha = styled.img`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;
 
-const loginForm = ({ handleSubmit, error }) => {
+const loginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <FormLogin onSubmit={handleSubmit}>
       {createField(
@@ -54,6 +58,15 @@ const loginForm = ({ handleSubmit, error }) => {
       )}
 
       {createField(null, "rememberMe", "checkbox", [], "input", " Remember me")}
+      {captchaUrl && <>
+        <ImgCaptcha src={captchaUrl}/>
+        {createField(
+        "Enter captcha",
+        "captcha",
+        "text",
+        [required, inputLength],
+        myInput)}
+      </>}
       {error && <DivApiError>{error}</DivApiError>}
       <ButtonLogin className="btn btn-warning" type="submit">
         Login
